@@ -2,8 +2,10 @@ import "./App.css";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import Login from "./components/login/login";
+import React from "react";
 
-function App() {
+const App = (props) => {
+  function callGoogleLogin() {}
   return (
     <>
       <Header />
@@ -11,6 +13,6 @@ function App() {
       <Footer />
     </>
   );
-}
+};
 
 export default App;
