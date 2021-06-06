@@ -3,13 +3,16 @@ import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import Login from "./components/login/login";
 import React from "react";
+import { signInWithGoogle } from "./firebase";
 
 const App = (props) => {
-  function callGoogleLogin() {}
+  function googleLoginButtonClick() {
+    signInWithGoogle();
+  }
   return (
     <>
       <Header />
-      <Login />
+      <Login handleClick={googleLoginButtonClick} />
       <Footer />
     </>
   );
