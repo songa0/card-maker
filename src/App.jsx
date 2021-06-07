@@ -1,20 +1,26 @@
-import "./App.css";
-import Header from "./components/header/header";
-import Footer from "./components/footer/footer";
+import styles from "./App.module.css";
+import React, { useEffect, useState } from "react";
+import { signInWithGoogle, auth } from "./firebase";
 import Login from "./components/login/login";
-import React from "react";
-import { signInWithGoogle } from "./firebase";
 
 const App = (props) => {
-  function googleLoginButtonClick() {
+  const [currentUser, setCurrentUser] = useState(null);
+  const googleLoginButtonClick = () => {
     signInWithGoogle();
-  }
+  };
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      setCurrentUser(user);
+    });
+  });
+
   return (
-    <>
-      <Header />
-      <Login handleClick={googleLoginButtonClick} />
-      <Footer />
-    </>
+    <div className={styles.app}>
+      <Login
+        className={styles.login__popup}
+        handleClick={googleLoginButtonClick}
+      />
+    </div>
   );
 };
 
