@@ -1,16 +1,15 @@
 import React from "react";
-import Header from "../header/header";
-import Footer from "../footer/footer";
-import LoginMethod from "../login__method/login__method";
 import styles from "./login.module.css";
 
 const Login = (props) => {
   return (
-    <div className={styles.login__popup}>
-      <Header />
-      <LoginMethod handleClick={props.handleClick} />
-      <Footer />
-    </div>
+    <section className={styles.loginSection}>
+      <div className={styles.loginText}>Login</div>
+      <button className={styles.loginWay} onClick={props.handleLoginClick}>
+        Google
+      </button>
+      <button className={styles.loginWay}>Github</button>
+    </section>
   );
 };
 

@@ -7,3 +7,11 @@
   justify-content: center;
   height: 100vh;
 }
+.login__popup {
+  width: 35rem;
+  background-color: white;
+}
+.main {
+  width: 65rem;
+  background-color: white;
+}
