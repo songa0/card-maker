@@ -10,14 +10,14 @@ const firebaseConfig = {
   databaseURL: process.env.REACT_APP_DATABASE_URL,
 };
 
-firebase.initializeApp(firebaseConfig);
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+export default firebaseApp;
+// export const auth = firebase.auth();
+// export const firestore = firebase.firestore();
 
-export const auth = firebase.auth();
-export const firestore = firebase.firestore();
+// const provider = new firebase.auth.GoogleAuthProvider();
+// provider.setCustomParameters({ prompt: "select_account" });
 
-const provider = new firebase.auth.GoogleAuthProvider();
-provider.setCustomParameters({ prompt: "select_account" });
+// export const signInWithGoogle = () => auth.signInWithPopup(provider);
 
-export const signInWithGoogle = () => auth.signInWithPopup(provider);
-
-export default firebase;
+// export default firebase;

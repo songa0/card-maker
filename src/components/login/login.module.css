@@ -1,16 +1,21 @@
 @value makerGreen from '../../common/colors.css';
 
-.loginSection {
+.login__section {
   text-align: center;
+  background-color: white;
+  width: 30rem;
 }
 
-.loginText {
+.login__text {
   font-size: 2rem;
   font-weight: bold;
   padding: 1rem;
 }
-
-.loginWay {
+.btn__list {
+  list-style-type: none;
+  padding: 0;
+}
+.provider {
   border: 2px solid makerGreen;
   padding: 0.5rem;
   font-size: 1.5rem;

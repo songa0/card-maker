@@ -3,16 +3,12 @@ import styles from "./header.module.css";
 
 const Header = (props) => {
   return (
-    <header
-      className={
-        props.display === "popup" ? styles.header : styles.main__header
-      }
-    >
+    <header className={styles.header}>
       <img src="images/logo.png" />
       {props.display == "popup" ? (
         ""
       ) : (
-        <button className={styles.logout} onClick={props.handleLogoutClick}>
+        <button className={styles.logout} onClick={props.onLogOut}>
           Logout
         </button>
       )}
