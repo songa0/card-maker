@@ -7,13 +7,12 @@ const Login = ({ authService }) => {
   const onLogin = (event) => {
     authService //
       .login(event.currentTarget.textContent)
-      .then(console.log);
+      .then();
   };
 
   const onLogout = () => {
     authService.logOut();
   };
-
   return (
     <section className={styles.login__section}>
       <Header onLogOut={onLogout} />
