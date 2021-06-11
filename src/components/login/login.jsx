@@ -3,29 +3,20 @@ import Footer from "../footer/footer";
 import Header from "../header/header";
 import styles from "./login.module.css";
 
-const Login = ({ authService }) => {
-  const onLogin = (event) => {
-    authService //
-      .login(event.currentTarget.textContent)
-      .then();
-  };
-
-  const onLogout = () => {
-    authService.logOut();
-  };
+const Login = (props) => {
   return (
     <section className={styles.login__section}>
-      <Header onLogOut={onLogout} />
+      <Header onLogOut={props.onLogout} />
       <section>
         <div className={styles.login__text}>Login</div>
         <ul className={styles.btn__list}>
           <li>
-            <button className={styles.provider} onClick={onLogin}>
+            <button className={styles.provider} onClick={props.onLogin}>
               Google
             </button>
           </li>
           <li>
-            <button className={styles.provider} onClick={onLogin}>
+            <button className={styles.provider} onClick={props.onLogin}>
               Github
             </button>
           </li>
