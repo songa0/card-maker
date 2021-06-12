@@ -5,12 +5,12 @@ const Header = (props) => {
   return (
     <header className={styles.header}>
       <img src="images/logo.png" />
-      {props.display == "popup" ? (
-        ""
-      ) : (
+      {props.loginStatus === "true" ? (
         <button className={styles.logout} onClick={props.onLogOut}>
           Logout
         </button>
+      ) : (
+        ""
       )}
       <div>Business Card Maker</div>
     </header>

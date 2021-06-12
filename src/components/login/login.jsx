@@ -6,7 +6,7 @@ import styles from "./login.module.css";
 const Login = (props) => {
   return (
     <section className={styles.login__section}>
-      <Header onLogOut={props.onLogout} />
+      <Header onLogOut={props.onLogout} loginStatus={props.loginStatus} />
       <section>
         <div className={styles.login__text}>Login</div>
         <ul className={styles.btn__list}>

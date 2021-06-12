@@ -29,7 +29,13 @@ const App = ({ authService }) => {
         <Switch>
           <Route
             path="/"
-            render={() => <Login onLogin={onLogin} onLogout={onLogout} />}
+            render={() => (
+              <Login
+                onLogin={onLogin}
+                onLogout={onLogout}
+                loginStatus={user ? "true" : "false"}
+              />
+            )}
           ></Route>
           <Route path="/card">
             <Card />
