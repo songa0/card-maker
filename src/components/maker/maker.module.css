@@ -1,3 +1,21 @@
+@value makerGreen,makerBlack,makerWhite,makerGrey from '../../common/colors.css';
+@value mediaQuery from '../../common/size.css';
 .maker {
-  width: 70rem;
+  width: 100%;
+  height: 100%;
+  background-color: makerWhite;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  display: flex;
+  flex: 1;
+}
+
+@media screen and (max-width: mediaQuery) {
+  .card {
+    flex-direction: column;
+  }
 }
