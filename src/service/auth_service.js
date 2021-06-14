@@ -1,7 +1,6 @@
 import firebaseApp from "firebase";
 import "firebase/firestore";
 import "firebase/auth";
-import { useHistory } from "react-router";
 
 class AuthService {
   login(providerName) {
@@ -11,6 +10,13 @@ class AuthService {
 
   logout() {
     return firebaseApp.auth().signOut();
+  }
+
+  onAuthStateChanged(onUserChanged) {
+    firebaseApp.auth().onAuthStateChanged((user) => {
+      console.log("onAuthStateChanged", user);
+      onUserChanged(user);
+    });
   }
 }
 

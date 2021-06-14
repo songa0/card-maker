@@ -14,12 +14,6 @@ const Login = ({ authService }) => {
       });
   };
 
-  const onLogout = () => {
-    authService //
-      .logout()
-      .then();
-  };
-
   const history = useHistory();
   const goToMaker = (userId) => {
     history.push({
@@ -28,9 +22,15 @@ const Login = ({ authService }) => {
     });
   };
 
+  useEffect(() => {
+    authService.onAuthStateChanged((user) => {
+      user && goToMaker(user.uid);
+    });
+  });
+
   return (
     <section className={styles.login__section}>
-      <Header onLogOut={onLogout} />
+      <Header />
       <section>
         <div className={styles.login__text}>Login</div>
         <ul className={styles.btn__list}>
