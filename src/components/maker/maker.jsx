@@ -21,12 +21,39 @@ const Maker = ({ authService }) => {
       }
     });
   });
+
+  const card = [
+    {
+      name: "Ellie",
+      company: "Samsung",
+      color: "dark",
+      job: "software engineer",
+      email: "dream.coder.ellie@gmail.com",
+      comment: "don't forget to code your dream",
+    },
+    {
+      name: "Bob",
+      company: "Samsung",
+      color: "dark",
+      job: "software engineer",
+      email: "dream.coder.ellie@gmail.com",
+      comment: "don't forget to code your dream",
+    },
+    {
+      name: "Chris",
+      company: "Samsung",
+      color: "dark",
+      job: "software engineer",
+      email: "dream.coder.ellie@gmail.com",
+      comment: "don't forget to code your dream",
+    },
+  ];
   return (
     <section className={styles.maker}>
       <Header onLogout={onLogout} />
       <div className={styles.card}>
-        <Editor />
-        <Preview />
+        <Editor userInfo={card} />
+        <Preview userInfo={card} />
       </div>
       <Footer />
     </section>

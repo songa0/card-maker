@@ -1,0 +1,17 @@
+@value makerGreen,makerBlack,makerPink,makerWhite,makerGrey from '../../common/colors.css';
+
+.table {
+  border: 1px solid makerGrey;
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+.table tr {
+  border-collapse: collapse;
+  border: 1px solid makerGrey;
+}
+.table td {
+  border-collapse: collapse;
+  border: 1px solid makerGrey;
+}
