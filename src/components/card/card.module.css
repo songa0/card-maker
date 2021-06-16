@@ -1,23 +1,30 @@
 @value makerGreen,makerBlack,makerWhite,makerGrey from '../../common/colors.css';
-.table {
-  border: 1px solid makerGrey;
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 2rem;
-}
-.table tr {
-  border-collapse: collapse;
-  border: 1px solid makerGrey;
-}
 
-.table td {
-  border-collapse: collapse;
-  border: 1px solid makerGrey;
-  text-align: left;
-}
-.img__row {
-  width: 110px;
-}
 .img {
   width: 100px;
+  height: 120px;
+  margin-right: 2rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  margin-bottom: 1rem;
+  background-color: makerBlack;
+  color: white;
+  border-radius: 20px;
+  padding: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.name {
+  font-size: 1.5rem;
+  font-weight: 500;
+  display: block;
+}
+
+.card span {
+  display: block;
 }

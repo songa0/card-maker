@@ -3,30 +3,17 @@ import styles from "./card.module.css";
 
 const Card = ({ userInfo }) => {
   return (
-    <table className={styles.table}>
-      <tbody>
-        <tr>
-          <td rowSpan="6" className={styles.img__row}>
-            <img className={styles.img} src="images/default_logo.png" />
-          </td>
-        </tr>
-        <tr>
-          <td>{userInfo.name}</td>
-        </tr>
-        <tr>
-          <td>{userInfo.company}</td>
-        </tr>
-        <tr>
-          <td>{userInfo.job}</td>
-        </tr>
-        <tr>
-          <td>{userInfo.email}</td>
-        </tr>
-        <tr>
-          <td>{userInfo.comment}</td>
-        </tr>
-      </tbody>
-    </table>
+    <div className={styles.card}>
+      <img className={styles.img} src="images/default_logo.png" />
+      <div>
+        <span className={styles.name}>{userInfo.name}</span>
+        <span>{userInfo.company}</span>
+        <hr />
+        <span>{userInfo.job}</span>
+        <span>{userInfo.email}</span>
+        <span>{userInfo.comment}</span>
+      </div>
+    </div>
   );
 };
 

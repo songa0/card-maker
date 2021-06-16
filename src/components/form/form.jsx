@@ -16,15 +16,15 @@ const Form = ({ userInfo }) => {
             <td colspan="2">{userInfo.job}</td>
             <td colspan="2">{userInfo.email}</td>
           </tr>
-          <tr>
+          <tr className={styles.comment}>
             <td colspan="4">{userInfo.comment}</td>
           </tr>
           <tr>
-            <td colspan="2">
-              <button>name</button>
+            <td colspan="2" className={styles.img__btn}>
+              name
             </td>
-            <td colspan="2">
-              <button>Delete</button>
+            <td colspan="2" className={styles.del__btn}>
+              Delete
             </td>
           </tr>
         </tbody>
