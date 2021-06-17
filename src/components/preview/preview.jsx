@@ -8,7 +8,7 @@ const Preview = ({ userInfo }) => {
       <h1 className={styles.title}>Card Preview</h1>
       <ul className={styles.form}>
         {userInfo.map((user) => (
-          <li>
+          <li key={user.id}>
             <Card userInfo={user} />
           </li>
         ))}

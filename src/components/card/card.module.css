@@ -1,9 +1,10 @@
-@value makerGreen,makerBlack,makerWhite,makerGrey from '../../common/colors.css';
+@value makerGreen,makerBlack,makerWhite,makerGrey,makerColorful,makerShadow from '../../common/colors.css';
 
 .img {
-  width: 100px;
-  height: 120px;
-  margin-right: 2rem;
+  width: 8rem;
+  height: 8rem;
+  margin-right: 3rem;
+  margin-left: 1rem;
 }
 
 .card {
@@ -11,12 +12,12 @@
   flex-direction: row;
   text-align: left;
   margin-bottom: 1rem;
-  background-color: makerBlack;
   color: white;
   border-radius: 20px;
   padding: 1rem;
   align-items: center;
-  justify-content: center;
+  box-shadow: 6px 6px 8px 0px makerShadow;
+  font-size: 0.8rem;
 }
 
 .name {
@@ -27,4 +28,14 @@
 
 .card span {
   display: block;
+}
+
+.dark {
+  background: makerBlack;
+}
+.light {
+  background: makerGrey;
+}
+.colorful {
+  background: makerColorful;
 }

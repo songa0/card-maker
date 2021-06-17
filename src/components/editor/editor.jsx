@@ -9,7 +9,7 @@ const Editor = ({ userInfo }) => {
       <h1 className={styles.title}>Card Maker</h1>
       <ul className={styles.form}>
         {userInfo.map((user) => (
-          <li>
+          <li key={user.id}>
             <Form userInfo={user} />
           </li>
         ))}

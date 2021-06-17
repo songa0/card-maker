@@ -2,28 +2,28 @@ import React from "react";
 import styles from "./form.module.css";
 
 const Form = ({ userInfo }) => {
-  console.log(userInfo);
+  const { name, company, theme, job, email, comment } = userInfo;
   return (
     <>
       <table className={styles.table}>
         <tbody className={styles.tbody}>
           <tr>
-            <td>{userInfo.name}</td>
-            <td colspan="2">{userInfo.company}</td>
-            <td>{userInfo.color}</td>
+            <td>{name}</td>
+            <td colSpan="2">{company}</td>
+            <td>{theme}</td>
           </tr>
           <tr>
-            <td colspan="2">{userInfo.job}</td>
-            <td colspan="2">{userInfo.email}</td>
+            <td colSpan="2">{job}</td>
+            <td colSpan="2">{email}</td>
           </tr>
           <tr className={styles.comment}>
-            <td colspan="4">{userInfo.comment}</td>
+            <td colSpan="4">{comment}</td>
           </tr>
           <tr>
-            <td colspan="2" className={styles.img__btn}>
+            <td colSpan="2" className={styles.img__btn}>
               name
             </td>
-            <td colspan="2" className={styles.del__btn}>
+            <td colSpan="2" className={styles.del__btn}>
               Delete
             </td>
           </tr>
