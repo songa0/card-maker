@@ -1,0 +1,9 @@
+@value makerGreen,makerBlack,makerPink,makerWhite,makerGrey,makerLightPink from '../../common/colors.css';
+
+.button {
+  background-color: makerLightPink;
+  font-weight: 700;
+  text-align: center;
+  border: 0;
+  width: 100%;
+}

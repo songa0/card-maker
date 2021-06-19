@@ -16,13 +16,26 @@
   border: 1px solid makerGrey;
   padding: 7px;
 }
+.table td input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  font-size: 1rem;
+}
+
+.table td textarea {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  font-size: 1rem;
+}
 .img__btn {
   background-color: makerLightPink;
   font-weight: 500;
   text-align: center;
 }
 
-.del__btn {
+.add__btn {
   background-color: makerGreen;
   color: makerWhite;
   font-weight: 500;

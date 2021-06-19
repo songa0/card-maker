@@ -1,5 +1,6 @@
 import React from "react";
-import Form from "../form/form";
+import CardAddForm from "../card__add__form/card_add_form";
+import CardEditForm from "../card__edit__form/card_edit_form";
 import styles from "./editor.module.css";
 
 const Editor = ({ userInfo }) => {
@@ -10,7 +11,7 @@ const Editor = ({ userInfo }) => {
       <ul className={styles.form}>
         {userInfo.map((user) => (
           <li key={user.id}>
-            <Form userInfo={user} />
+            <CardEditForm userInfo={user} />
           </li>
         ))}
       </ul>

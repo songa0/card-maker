@@ -1,0 +1,39 @@
+@value makerGreen,makerBlack,makerPink,makerWhite,makerGrey,makerLightPink from '../../common/colors.css';
+
+.form {
+  display: flex;
+  width: 90%;
+  flex-wrap: wrap;
+  border-top: 1px solid makerBlack;
+  border-left: 1px solid makerBlack;
+  margin: 1em auto;
+}
+
+.input,
+.select,
+.textarea {
+  font-size: 0.8em;
+  width: 100%;
+  border: 0;
+  border-right: 1px solid makerBlack;
+  border-bottom: 1px solid makerBlack;
+  outline: 0;
+  padding: 0.5rem;
+}
+
+.input,
+.select {
+  flex: 1 1 30%;
+}
+
+.textarea {
+  flex-basis: 100%;
+}
+
+.buttonDiv {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border-bottom: 1px solid makerBlack;
+  height: 1.5rem;
+}
