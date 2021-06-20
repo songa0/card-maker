@@ -14,6 +14,7 @@ const Editor = ({ userInfo }) => {
             <CardEditForm userInfo={user} />
           </li>
         ))}
+        <CardAddForm />
       </ul>
     </section>
   );

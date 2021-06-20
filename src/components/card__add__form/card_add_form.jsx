@@ -1,4 +1,6 @@
 import React, { useRef } from "react";
+import Button from "../Button/button";
+import ImageFileInput from "../image_file_input/image_file_input";
 import styles from "./card_add_form.module.css";
 
 const CardAddForm = () => {
@@ -10,44 +12,46 @@ const CardAddForm = () => {
   const theme = useRef();
 
   return (
-    <>
-      <table className={styles.table}>
-        <tbody className={styles.tbody}>
-          <tr>
-            <td>
-              <input type="text" ref={name} />
-            </td>
-            <td colSpan="2">
-              <input type="text" ref={company} />
-            </td>
-            <td>
-              <input type="text" ref={theme} />
-            </td>
-          </tr>
-          <tr>
-            <td colSpan="2">
-              <input type="text" ref={job} />
-            </td>
-            <td colSpan="2">
-              <input type="text" ref={email} />
-            </td>
-          </tr>
-          <tr className={styles.comment}>
-            <td colSpan="4">
-              <textarea ref={comment}></textarea>
-            </td>
-          </tr>
-          <tr>
-            <td colSpan="2" className={styles.img__btn}>
-              name
-            </td>
-            <td colSpan="2" className={styles.add__btn}>
-              Add
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </>
+    <form className={styles.form}>
+      <input
+        className={styles.input}
+        type="text"
+        ref={name}
+        placeholder="Name"
+      />
+      <input
+        className={styles.input}
+        type="text"
+        ref={company}
+        placeholder="Company"
+      />
+      <select className={styles.select} ref={theme}>
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+        <option value="colorful">Colorful</option>
+      </select>
+      <input
+        className={styles.input}
+        type="text"
+        ref={job}
+        placeholder="Title"
+      />
+      <input
+        className={styles.input}
+        type="text"
+        ref={email}
+        placeholder="Email"
+      />
+      <textarea
+        className={styles.textarea}
+        ref={comment}
+        placeholder="Message"
+      ></textarea>
+      <div className={styles.buttonDiv}>
+        <ImageFileInput />
+        <Button name="Add"></Button>
+      </div>
+    </form>
   );
 };
 
