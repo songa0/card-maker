@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./button.module.css";
 
-const Button = ({ name, callback }) => {
+const Button = ({ name, onSubmit }) => {
   return (
-    <button className={styles.button} onClick={callback}>
+    <button className={styles.button} onClick={onSubmit}>
       {name}
     </button>
   );

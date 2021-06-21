@@ -37,6 +37,11 @@ const Maker = ({ authService }) => {
       comment: "don't forget to code your dream",
     },
   ]);
+
+  const addCardFunc = (card) => {
+    const updatedCard = [...cards, card];
+    setCards(updatedCard);
+  };
   const onLogout = () => {
     authService //
       .logout();
@@ -54,7 +59,7 @@ const Maker = ({ authService }) => {
     <section className={styles.maker}>
       <Header onLogout={onLogout} />
       <div className={styles.card}>
-        <Editor userInfo={cards} />
+        <Editor userInfo={cards} addCardFunc={addCardFunc} />
         <Preview userInfo={cards} />
       </div>
       <Footer />

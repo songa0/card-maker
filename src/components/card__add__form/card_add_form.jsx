@@ -3,29 +3,46 @@ import Button from "../Button/button";
 import ImageFileInput from "../image_file_input/image_file_input";
 import styles from "./card_add_form.module.css";
 
-const CardAddForm = () => {
-  const name = useRef();
-  const job = useRef();
-  const company = useRef();
-  const comment = useRef();
-  const email = useRef();
-  const theme = useRef();
+const CardAddForm = ({ addCardFunc }) => {
+  const formRef = useRef();
+  const nameRef = useRef();
+  const jobRef = useRef();
+  const companyRef = useRef();
+  const commentRef = useRef();
+  const emailRef = useRef();
+  const themeRef = useRef();
 
+  const onSubmit = (event) => {
+    event.preventDefault();
+    const card = {
+      id: Date.now(),
+      name: nameRef.current.value || "",
+      job: jobRef.current.value || "",
+      company: companyRef.current.value || "",
+      comment: commentRef.current.value || "",
+      email: emailRef.current.value || "",
+      theme: themeRef.current.value || "",
+      fileName: "",
+      fileUrl: "",
+    };
+    formRef.current.reset();
+    addCardFunc(card);
+  };
   return (
-    <form className={styles.form}>
+    <form className={styles.form} ref={formRef}>
       <input
         className={styles.input}
         type="text"
-        ref={name}
+        ref={nameRef}
         placeholder="Name"
       />
       <input
         className={styles.input}
         type="text"
-        ref={company}
+        ref={companyRef}
         placeholder="Company"
       />
-      <select className={styles.select} ref={theme}>
+      <select className={styles.select} ref={themeRef}>
         <option value="dark">Dark</option>
         <option value="light">Light</option>
         <option value="colorful">Colorful</option>
@@ -33,23 +50,23 @@ const CardAddForm = () => {
       <input
         className={styles.input}
         type="text"
-        ref={job}
+        ref={jobRef}
         placeholder="Title"
       />
       <input
         className={styles.input}
         type="text"
-        ref={email}
+        ref={emailRef}
         placeholder="Email"
       />
       <textarea
         className={styles.textarea}
-        ref={comment}
+        ref={commentRef}
         placeholder="Message"
       ></textarea>
       <div className={styles.buttonDiv}>
         <ImageFileInput />
-        <Button name="Add"></Button>
+        <Button name="Add" onSubmit={onSubmit}></Button>
       </div>
     </form>
   );
