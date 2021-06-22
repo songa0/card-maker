@@ -47,6 +47,11 @@ const Maker = ({ authService }) => {
       .logout();
   };
 
+  const deleteCardFunc = (card) => {
+    console.log(card);
+    const updatedCard = cards.filter((item) => item.id !== card.id);
+    setCards(updatedCard);
+  };
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
       if (!user) {
@@ -59,7 +64,11 @@ const Maker = ({ authService }) => {
     <section className={styles.maker}>
       <Header onLogout={onLogout} />
       <div className={styles.card}>
-        <Editor userInfo={cards} addCardFunc={addCardFunc} />
+        <Editor
+          userInfo={cards}
+          addCardFunc={addCardFunc}
+          deleteCardFunc={deleteCardFunc}
+        />
         <Preview userInfo={cards} />
       </div>
       <Footer />

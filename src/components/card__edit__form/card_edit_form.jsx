@@ -3,8 +3,14 @@ import Button from "../Button/button";
 import ImageFileInput from "../image_file_input/image_file_input";
 import styles from "./card_edit_form.module.css";
 
-const CardEditForm = ({ userInfo }) => {
+const CardEditForm = ({ userInfo, deleteCardFunc }) => {
   const { name, company, theme, job, email, comment } = userInfo;
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+    deleteCardFunc(userInfo);
+  };
+
   return (
     <form className={styles.form}>
       <input className={styles.input} type="text" value={name} />
@@ -19,7 +25,7 @@ const CardEditForm = ({ userInfo }) => {
       <textarea className={styles.textarea}>{comment}</textarea>
       <div className={styles.buttonDiv}>
         <ImageFileInput />
-        <Button name="Delete"></Button>
+        <Button name="Delete" onSubmit={onSubmit}></Button>
       </div>
     </form>
   );
