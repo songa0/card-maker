@@ -8,8 +8,8 @@ import styles from "./maker.module.css";
 
 const Maker = ({ authService }) => {
   const history = useHistory();
-  const [cards, setCards] = useState([
-    {
+  const [cards, setCards] = useState({
+    1: {
       id: "1",
       name: "Ellie",
       company: "Samsung",
@@ -18,7 +18,7 @@ const Maker = ({ authService }) => {
       email: "dream.coder.ellie@gmail.com",
       comment: "don't forget to code your dream",
     },
-    {
+    2: {
       id: "2",
       name: "Bob",
       company: "Samsung",
@@ -27,7 +27,7 @@ const Maker = ({ authService }) => {
       email: "dream.coder.ellie@gmail.com",
       comment: "don't forget to code your dream",
     },
-    {
+    3: {
       id: "3",
       name: "Chris",
       company: "Samsung",
@@ -36,10 +36,10 @@ const Maker = ({ authService }) => {
       email: "dream.coder.ellie@gmail.com",
       comment: "don't forget to code your dream",
     },
-  ]);
+  });
 
   const addCardFunc = (card) => {
-    const updatedCard = [...cards, card];
+    const updatedCard = { ...cards, [card.id]: card };
     setCards(updatedCard);
   };
   const onLogout = () => {
@@ -48,10 +48,20 @@ const Maker = ({ authService }) => {
   };
 
   const deleteCardFunc = (card) => {
-    console.log(card);
-    const updatedCard = cards.filter((item) => item.id !== card.id);
+    const updatedCard = { ...cards };
+    delete updatedCard[card.id];
     setCards(updatedCard);
   };
+
+  const addAndUdpateCardFunc = (card) => {
+    //그냥 cards로 쓰면 오래된 걸수도 있음. 현재 상태의 cards를 받아와서 수정
+    setCards((cards) => {
+      const updatedCard = { ...cards };
+      updatedCard[card.id] = card;
+      return updatedCard;
+    });
+  };
+
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
       if (!user) {
@@ -66,8 +76,9 @@ const Maker = ({ authService }) => {
       <div className={styles.card}>
         <Editor
           userInfo={cards}
-          addCardFunc={addCardFunc}
+          addCardFunc={addAndUdpateCardFunc}
           deleteCardFunc={deleteCardFunc}
+          udpateCardFunc={addAndUdpateCardFunc}
         />
         <Preview userInfo={cards} />
       </div>

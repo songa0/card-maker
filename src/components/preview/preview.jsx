@@ -7,9 +7,9 @@ const Preview = ({ userInfo }) => {
     <section className={styles.preview}>
       <h1 className={styles.title}>Card Preview</h1>
       <ul className={styles.form}>
-        {userInfo.map((user) => (
-          <li key={user.id}>
-            <Card userInfo={user} />
+        {Object.keys(userInfo).map((key) => (
+          <li key={key}>
+            <Card userInfo={userInfo[key]} />
           </li>
         ))}
       </ul>
