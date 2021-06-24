@@ -1,0 +1,3 @@
+class Cloudinary {
+  constructor(key) {}
+}

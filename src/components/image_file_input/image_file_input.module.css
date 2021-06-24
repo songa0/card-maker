@@ -7,3 +7,6 @@
   border: 0;
   width: 100%;
 }
+.file {
+  display: none;
+}
