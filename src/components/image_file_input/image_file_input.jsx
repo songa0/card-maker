@@ -4,22 +4,25 @@ import styles from "./image_file_input.module.css";
 const ImageFileInput = () => {
   const buttonRef = useRef();
   let inputFile = "";
-  const onFileInputClick = () => {
+  const onFileInputClick = (event) => {
+    //event.stopImmediatePropagation();
     inputFile.click();
+    //event.stopPropagation();
+  };
+  const imageChange = (event) => {
+    event.preventDefault();
+    console.log(event.target.files);
   };
   return (
-    <button
-      className={styles.button}
-      ref={buttonRef}
-      onClick={onFileInputClick}
-    >
+    <>
       <input
         type="file"
         accept="image/*"
         className={styles.file}
         ref={(input) => (inputFile = input)}
+        onChange={imageChange}
       />
-    </button>
+    </>
   );
 };
 
