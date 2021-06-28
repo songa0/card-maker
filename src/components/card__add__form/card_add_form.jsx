@@ -3,7 +3,7 @@ import Button from "../Button/button";
 import ImageFileInput from "../image_file_input/image_file_input";
 import styles from "./card_add_form.module.css";
 
-const CardAddForm = ({ addCardFunc }) => {
+const CardAddForm = ({ addCardFunc, fileInput }) => {
   const formRef = useRef();
   const nameRef = useRef();
   const jobRef = useRef();

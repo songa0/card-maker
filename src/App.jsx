@@ -4,7 +4,7 @@ import Login from "./components/login/login";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import Maker from "./components/maker/maker";
 
-const App = ({ authService }) => {
+const App = ({ authService, fileInput }) => {
   return (
     <Router>
       <div className={styles.app}>
@@ -13,7 +13,7 @@ const App = ({ authService }) => {
             <Login authService={authService} />
           </Route>
           <Route path="/maker">
-            <Maker authService={authService} />
+            <Maker authService={authService} fileInput={fileInput} />
           </Route>
         </Switch>
       </div>

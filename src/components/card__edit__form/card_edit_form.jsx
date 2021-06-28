@@ -3,7 +3,12 @@ import Button from "../Button/button";
 import ImageFileInput from "../image_file_input/image_file_input";
 import styles from "./card_edit_form.module.css";
 
-const CardEditForm = ({ userInfo, deleteCardFunc, udpateCardFunc }) => {
+const CardEditForm = ({
+  userInfo,
+  deleteCardFunc,
+  udpateCardFunc,
+  fileInput,
+}) => {
   const { name, company, theme, job, email, comment } = userInfo;
 
   const commentRef = useRef();

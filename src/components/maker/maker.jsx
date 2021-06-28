@@ -6,7 +6,7 @@ import Header from "../header/header";
 import Preview from "../preview/preview";
 import styles from "./maker.module.css";
 
-const Maker = ({ authService }) => {
+const Maker = ({ authService, fileInput }) => {
   const history = useHistory();
   const [cards, setCards] = useState({
     1: {
@@ -79,6 +79,7 @@ const Maker = ({ authService }) => {
           addCardFunc={addAndUdpateCardFunc}
           deleteCardFunc={deleteCardFunc}
           udpateCardFunc={addAndUdpateCardFunc}
+          fileInput={fileInput}
         />
         <Preview userInfo={cards} />
       </div>
