@@ -8,7 +8,7 @@ const Editor = ({
   addCardFunc,
   deleteCardFunc,
   udpateCardFunc,
-  fileInput,
+  FileInput,
 }) => {
   return (
     <section className={styles.editor}>
@@ -20,11 +20,11 @@ const Editor = ({
               userInfo={userInfo[key]}
               deleteCardFunc={deleteCardFunc}
               udpateCardFunc={udpateCardFunc}
-              fileInput={fileInput}
+              FileInput={FileInput}
             />
           </li>
         ))}
-        <CardAddForm addCardFunc={addCardFunc} fileInput={fileInput} />
+        <CardAddForm addCardFunc={addCardFunc} FileInput={FileInput} />
       </ul>
     </section>
   );

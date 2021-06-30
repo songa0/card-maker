@@ -1,37 +1,34 @@
 import React, { useRef } from "react";
 import styles from "./image_file_input.module.css";
 
-const ImageFileInput = () => {
+const ImageFileInput = ({ uploader }) => {
   const buttonRef = useRef();
-  let inputFile = "";
+  const inputFile = useRef();
+
   const onFileInputClick = (event) => {
-    //event.stopImmediatePropagation();
-    inputFile.click();
-    //event.stopPropagation();
+    event.preventDefault();
+    inputFile.current.click();
   };
-  const imageChange = (event) => {
-    console.log(event.target.files);
-    //event.preventDefault();
-    //console.log(event.target.files);
+  const onFileInputChange = (event) => {
+    console.log(event.target.files[0]);
+    uploader.upload(event.target.files[0]).then(console.log);
   };
 
-  const inputClick = (event) => {
-    event.currentTarget.value = null;
-  };
   return (
     <>
       <button
         className={styles.button}
         ref={buttonRef}
         onClick={onFileInputClick}
-      ></button>
+      >
+        No file
+      </button>
       <input
         type="file"
         accept="image/*"
         className={styles.file}
-        ref={(input) => (inputFile = input)}
-        onClick={inputClick}
-        onChange={imageChange}
+        ref={inputFile}
+        onChange={onFileInputChange}
       />
     </>
   );

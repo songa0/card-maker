@@ -9,11 +9,11 @@ import ImageFileInput from "./components/image_file_input/image_file_input";
 const authService = new AuthService();
 const uploader = new Cloudinary();
 const fileInput = (props) => {
-  <ImageFileInput {...props} uploader={uploader} />;
+  return <ImageFileInput {...props} uploader={uploader} />;
 };
 ReactDOM.render(
   <React.StrictMode>
-    <App authService={authService} fileInput={fileInput} />
+    <App authService={authService} FileInput={fileInput} />
   </React.StrictMode>,
   document.getElementById("root")
 );
