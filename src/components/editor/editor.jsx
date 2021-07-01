@@ -9,6 +9,7 @@ const Editor = ({
   deleteCardFunc,
   udpateCardFunc,
   FileInput,
+  updateImgUrl,
 }) => {
   return (
     <section className={styles.editor}>
@@ -21,6 +22,7 @@ const Editor = ({
               deleteCardFunc={deleteCardFunc}
               udpateCardFunc={udpateCardFunc}
               FileInput={FileInput}
+              updateImgUrl={updateImgUrl}
             />
           </li>
         ))}

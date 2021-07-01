@@ -7,6 +7,7 @@ const CardEditForm = ({
   deleteCardFunc,
   udpateCardFunc,
   FileInput,
+  updateImgUrl,
 }) => {
   const { name, company, theme, job, email, comment } = userInfo;
 
@@ -54,7 +55,7 @@ const CardEditForm = ({
         {comment}
       </textarea>
       <div className={styles.buttonDiv}>
-        <FileInput />
+        <FileInput updateImgUrl={updateImgUrl} userKey={userInfo.id} />
         <Button name="Delete" onSubmit={onSubmit}></Button>
       </div>
     </form>
