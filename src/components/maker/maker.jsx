@@ -17,7 +17,8 @@ const Maker = ({ authService, FileInput }) => {
       job: "software engineer",
       email: "dream.coder.ellie@gmail.com",
       comment: "don't forget to code your dream",
-      imgUrl: "",
+      fileURL: "",
+      fileName: "",
     },
     2: {
       id: "2",
@@ -27,7 +28,8 @@ const Maker = ({ authService, FileInput }) => {
       job: "software engineer",
       email: "dream.coder.ellie@gmail.com",
       comment: "don't forget to code your dream",
-      imgUrl: "",
+      fileURL: "",
+      fileName: "",
     },
     3: {
       id: "3",
@@ -37,7 +39,8 @@ const Maker = ({ authService, FileInput }) => {
       job: "software engineer",
       email: "dream.coder.ellie@gmail.com",
       comment: "don't forget to code your dream",
-      imgUrl: "",
+      fileURL: "",
+      fileName: "",
     },
   });
 
@@ -58,12 +61,13 @@ const Maker = ({ authService, FileInput }) => {
     setCards(updatedCard);
   };
 
-  const updateImgUrl = (key, imgUrl) => {
-    const updatedCard = { ...cards[key] };
-    updatedCard.imgUrl = imgUrl;
-    addAndUdpateCardFunc(updatedCard);
-  };
+  // const updateImgUrl = (key, imgUrl) => {
+  //   const updatedCard = { ...cards[key] };
+  //   updatedCard.imgUrl = imgUrl;
+  //   addAndUdpateCardFunc(updatedCard);
+  // };
   const addAndUdpateCardFunc = (card) => {
+    console.log(card);
     //그냥 cards로 쓰면 오래된 걸수도 있음. 현재 상태의 cards를 받아와서 수정
     setCards((cards) => {
       const updatedCard = { ...cards };
@@ -88,9 +92,9 @@ const Maker = ({ authService, FileInput }) => {
           userInfo={cards}
           addCardFunc={addAndUdpateCardFunc}
           deleteCardFunc={deleteCardFunc}
-          udpateCardFunc={addAndUdpateCardFunc}
+          updateCardFunc={addAndUdpateCardFunc}
           FileInput={FileInput}
-          updateImgUrl={updateImgUrl}
+          // updateImgUrl={updateImgUrl}
         />
         <Preview userInfo={cards} />
       </div>

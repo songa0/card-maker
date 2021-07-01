@@ -5,9 +5,8 @@ import styles from "./card_edit_form.module.css";
 const CardEditForm = ({
   userInfo,
   deleteCardFunc,
-  udpateCardFunc,
+  updateCardFunc,
   FileInput,
-  updateImgUrl,
 }) => {
   const { name, company, theme, job, email, comment } = userInfo;
 
@@ -22,7 +21,15 @@ const CardEditForm = ({
     const name = event.currentTarget.name;
     const value = event.currentTarget.value;
 
-    udpateCardFunc({ ...userInfo, [name]: value });
+    updateCardFunc({ ...userInfo, [name]: value });
+  };
+
+  const onFileChange = (file) => {
+    updateCardFunc({
+      ...userInfo,
+      fileURL: file.secure_url,
+      fileName: file.original_filename,
+    });
   };
   return (
     <form className={styles.form}>
@@ -55,7 +62,7 @@ const CardEditForm = ({
         {comment}
       </textarea>
       <div className={styles.buttonDiv}>
-        <FileInput updateImgUrl={updateImgUrl} userKey={userInfo.id} />
+        <FileInput onChange={onFileChange} />
         <Button name="Delete" onSubmit={onSubmit}></Button>
       </div>
     </form>

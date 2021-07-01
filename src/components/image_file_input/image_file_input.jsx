@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import styles from "./image_file_input.module.css";
 
-const ImageFileInput = ({ uploader, updateImgUrl, userKey }) => {
+const ImageFileInput = ({ uploader, onChange }) => {
   const buttonRef = useRef();
   const inputFile = useRef();
 
@@ -11,13 +11,14 @@ const ImageFileInput = ({ uploader, updateImgUrl, userKey }) => {
   };
   const onFileInputChange = async (event) => {
     const uploaded = await uploader.upload(event.target.files[0]);
-    changeFileInfo(uploaded);
+    onChange(uploaded);
+    buttonRef.current.innerText = uploaded["original_filename"];
   };
 
-  const changeFileInfo = (fileInfo) => {
-    buttonRef.current.innerText = fileInfo["original_filename"];
-    updateImgUrl(userKey, fileInfo["secure_url"]);
-  };
+  // const changeFileInfo = (fileInfo) => {
+  //   buttonRef.current.innerText = fileInfo["original_filename"];
+  //   updateImgUrl(userKey, fileInfo["secure_url"]);
+  // };
   return (
     <>
       <button

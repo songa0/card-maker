@@ -2,10 +2,10 @@ import React from "react";
 import styles from "./card.module.css";
 
 const Card = ({ userInfo }) => {
-  const { name, company, theme, job, email, comment, imgUrl } = userInfo;
+  const { name, company, theme, job, email, comment, fileURL } = userInfo;
   return (
     <div className={`${styles.card} ${getThemeStyle(theme)}`}>
-      <img className={styles.img} src={imgUrl || `images/default_logo.png`} />
+      <img className={styles.img} src={fileURL || `images/default_logo.png`} />
       <div>
         <span className={styles.name}>{name}</span>
         <span>{company}</span>
