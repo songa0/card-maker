@@ -45,14 +45,32 @@ const CardEditForm = ({
         type="text"
         value={company}
         name="company"
+        onChange={onChange}
       />
-      <select className={styles.select} value={theme} name="theme">
+      <select
+        className={styles.select}
+        value={theme}
+        name="theme"
+        onChange={onChange}
+      >
         <option value="dark">Dark</option>
         <option value="light">Light</option>
         <option value="colorful">Colorful</option>
       </select>
-      <input className={styles.input} type="text" value={job} name="job" />
-      <input className={styles.input} type="text" value={email} name="email" />
+      <input
+        className={styles.input}
+        type="text"
+        value={job}
+        name="job"
+        onChange={onChange}
+      />
+      <input
+        className={styles.input}
+        type="text"
+        value={email}
+        name="email"
+        onChange={onChange}
+      />
       <textarea
         className={styles.textarea}
         ref={commentRef}

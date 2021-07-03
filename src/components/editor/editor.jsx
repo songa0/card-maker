@@ -24,7 +24,7 @@ const Editor = ({
             />
           </li>
         ))}
-        <CardAddForm addCardFunc={addCardFunc} FileInput={FileInput} />
+        <CardAddForm updateCardFunc={updateCardFunc} FileInput={FileInput} />
       </ul>
     </section>
   );

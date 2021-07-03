@@ -3,7 +3,7 @@ import Button from "../Button/button";
 import ImageFileInput from "../image_file_input/image_file_input";
 import styles from "./card_add_form.module.css";
 
-const CardAddForm = ({ addCardFunc, FileInput }) => {
+const CardAddForm = ({ addCardFunc, FileInput, updateCardFunc }) => {
   const formRef = useRef();
   const nameRef = useRef();
   const jobRef = useRef();
@@ -26,7 +26,29 @@ const CardAddForm = ({ addCardFunc, FileInput }) => {
       fileUrl: "",
     };
     formRef.current.reset();
-    addCardFunc(card);
+    updateCardFunc(card);
+  };
+
+  const onFileChange = (file) => {
+    const card = {
+      id: Date.now(),
+      name: nameRef.current.value || "",
+      job: jobRef.current.value || "",
+      company: companyRef.current.value || "",
+      comment: commentRef.current.value || "",
+      email: emailRef.current.value || "",
+      theme: themeRef.current.value || "",
+      fileName: "",
+      fileUrl: "",
+    };
+
+    updateCardFunc({
+      ...card,
+      fileURL: file.secure_url,
+      fileName: file.original_filename,
+    });
+
+    formRef.current.reset();
   };
   return (
     <form className={styles.form} ref={formRef}>
@@ -65,7 +87,7 @@ const CardAddForm = ({ addCardFunc, FileInput }) => {
         placeholder="Message"
       ></textarea>
       <div className={styles.buttonDiv}>
-        <FileInput />
+        <FileInput onChange={onFileChange} />
         <Button name="Add" onSubmit={onSubmit}></Button>
       </div>
     </form>

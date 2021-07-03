@@ -67,7 +67,6 @@ const Maker = ({ authService, FileInput }) => {
   //   addAndUdpateCardFunc(updatedCard);
   // };
   const addAndUdpateCardFunc = (card) => {
-    console.log(card);
     //그냥 cards로 쓰면 오래된 걸수도 있음. 현재 상태의 cards를 받아와서 수정
     setCards((cards) => {
       const updatedCard = { ...cards };
