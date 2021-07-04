@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import Button from "../Button/button";
-import ImageFileInput from "../image_file_input/image_file_input";
 import styles from "./card_add_form.module.css";
 
 const CardAddForm = ({ addCardFunc, FileInput, updateCardFunc }) => {
@@ -25,29 +24,12 @@ const CardAddForm = ({ addCardFunc, FileInput, updateCardFunc }) => {
       fileName: "",
       fileUrl: "",
     };
-    formRef.current.reset();
     updateCardFunc(card);
+
+    formRef.current.reset();
   };
 
-  const onFileChange = (file) => {
-    const card = {
-      id: Date.now(),
-      name: nameRef.current.value || "",
-      job: jobRef.current.value || "",
-      company: companyRef.current.value || "",
-      comment: commentRef.current.value || "",
-      email: emailRef.current.value || "",
-      theme: themeRef.current.value || "",
-      fileName: "",
-      fileUrl: "",
-    };
-
-    updateCardFunc({
-      ...card,
-      fileURL: file.secure_url,
-      fileName: file.original_filename,
-    });
-
+  const onFileChange = () => {
     formRef.current.reset();
   };
   return (

@@ -4,13 +4,16 @@ import styles from "./image_file_input.module.css";
 const ImageFileInput = ({ uploader, onChange }) => {
   const buttonRef = useRef();
   const inputFile = useRef();
+  const [uploading, setUploading] = useState(false);
 
   const onFileInputClick = (event) => {
     event.preventDefault();
     inputFile.current.click();
   };
   const onFileInputChange = async (event) => {
+    setUploading(true);
     const uploaded = await uploader.upload(event.target.files[0]);
+    setUploading(false);
     onChange(uploaded);
     buttonRef.current.innerText = uploaded["original_filename"];
   };
@@ -20,14 +23,7 @@ const ImageFileInput = ({ uploader, onChange }) => {
   //   updateImgUrl(userKey, fileInfo["secure_url"]);
   // };
   return (
-    <>
-      <button
-        className={styles.button}
-        ref={buttonRef}
-        onClick={onFileInputClick}
-      >
-        No file
-      </button>
+    <div className={styles.imgDiv}>
       <input
         type="file"
         accept="image/*"
@@ -35,7 +31,17 @@ const ImageFileInput = ({ uploader, onChange }) => {
         ref={inputFile}
         onChange={onFileInputChange}
       />
-    </>
+      {!uploading && (
+        <button
+          className={styles.button}
+          ref={buttonRef}
+          onClick={onFileInputClick}
+        >
+          No file
+        </button>
+      )}
+      {uploading && <div className={styles.loading}> </div>}
+    </div>
   );
 };
 
