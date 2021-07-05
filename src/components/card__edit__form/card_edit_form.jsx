@@ -8,7 +8,7 @@ const CardEditForm = ({
   updateCardFunc,
   FileInput,
 }) => {
-  const { name, company, theme, job, email, comment } = userInfo;
+  const { name, company, theme, job, email, comment, fileName } = userInfo;
 
   const commentRef = useRef();
   const onSubmit = (event) => {
@@ -80,7 +80,7 @@ const CardEditForm = ({
         {comment}
       </textarea>
       <div className={styles.buttonDiv}>
-        <FileInput onChange={onFileChange} />
+        <FileInput onChange={onFileChange} name={fileName} />
         <Button name="Delete" onSubmit={onSubmit}></Button>
       </div>
     </form>

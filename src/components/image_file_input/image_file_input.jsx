@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import styles from "./image_file_input.module.css";
 
-const ImageFileInput = ({ uploader, onChange }) => {
+const ImageFileInput = ({ uploader, onChange, name }) => {
   const buttonRef = useRef();
   const inputFile = useRef();
   const [uploading, setUploading] = useState(false);
@@ -37,7 +37,7 @@ const ImageFileInput = ({ uploader, onChange }) => {
           ref={buttonRef}
           onClick={onFileInputClick}
         >
-          No file
+          {name || "No file"}
         </button>
       )}
       {uploading && <div className={styles.loading}> </div>}
