@@ -85,7 +85,9 @@ const Maker = ({ authService, FileInput }) => {
 
   return (
     <section className={styles.maker}>
-      <Header onLogout={onLogout} />
+      <div className={styles.header}>
+        <Header onLogout={onLogout} />
+      </div>
       <div className={styles.card}>
         <Editor
           userInfo={cards}
@@ -97,7 +99,9 @@ const Maker = ({ authService, FileInput }) => {
         />
         <Preview userInfo={cards} />
       </div>
-      <Footer />
+      <div className={styles.footer}>
+        <Footer />
+      </div>
     </section>
   );
 };

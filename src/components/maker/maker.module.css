@@ -5,15 +5,19 @@
   height: 100%;
   background-color: makerWhite;
   text-align: center;
-  display: flex;
-  flex-direction: column;
+  max-width: 90rem;
+  overflow-y: hidden;
 }
 
 .card {
+  height: 80%;
   display: flex;
-  flex: 1;
+  flex: auto;
 }
 
+.footer {
+  height: 4%;
+}
 @media screen and (max-width: mediaQuery) {
   .card {
     flex-direction: column;
