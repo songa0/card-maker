@@ -1,7 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 import styles from "./card.module.css";
 
-const Card = ({ userInfo }) => {
+const Card = memo(({ userInfo }) => {
   const { name, company, theme, job, email, comment, fileURL } = userInfo;
   return (
     <div className={`${styles.card} ${getThemeStyle(theme)}`}>
@@ -33,6 +33,6 @@ const Card = ({ userInfo }) => {
         throw new Error(`Unknown theme : ${theme}`);
     }
   }
-};
+});
 
 export default Card;

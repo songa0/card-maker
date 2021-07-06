@@ -1,7 +1,8 @@
-import React, { useRef, useState } from "react";
+import React, { memo, useRef, useState } from "react";
 import styles from "./image_file_input.module.css";
 
-const ImageFileInput = ({ uploader, onChange, name }) => {
+const ImageFileInput = memo(({ uploader, onChange, name }) => {
+  //memo 처리해도 rerendering 일어남. index에서 uploader를 따로 정의했기 때문. index에서도 memo 처리
   const buttonRef = useRef();
   const inputFile = useRef();
   const [uploading, setUploading] = useState(false);
@@ -18,10 +19,6 @@ const ImageFileInput = ({ uploader, onChange, name }) => {
     buttonRef.current.innerText = uploaded["original_filename"];
   };
 
-  // const changeFileInfo = (fileInfo) => {
-  //   buttonRef.current.innerText = fileInfo["original_filename"];
-  //   updateImgUrl(userKey, fileInfo["secure_url"]);
-  // };
   return (
     <div className={styles.imgDiv}>
       <input
@@ -43,6 +40,6 @@ const ImageFileInput = ({ uploader, onChange, name }) => {
       {uploading && <div className={styles.loading}> </div>}
     </div>
   );
-};
+});
 
 export default ImageFileInput;

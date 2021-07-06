@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import ReactDOM from "react-dom";
 import "./index.module.css";
 import App from "./App.jsx";
@@ -11,9 +11,10 @@ const authService = new AuthService();
 const uploader = new Cloudinary();
 const dbService = new DBService();
 
-const fileInput = (props) => {
+const fileInput = memo((props) => {
   return <ImageFileInput {...props} uploader={uploader} />;
-};
+});
+
 ReactDOM.render(
   <React.StrictMode>
     <App
