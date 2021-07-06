@@ -1,5 +1,5 @@
 import firebase from "firebase/app";
-import "firebase/firestore";
+import "firebase/database";
 import "firebase/auth";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -10,14 +10,9 @@ const firebaseConfig = {
   databaseURL: process.env.REACT_APP_DATABASE_URL,
 };
 
-const firebaseApp = firebase.initializeApp(firebaseConfig);
-export default firebaseApp;
-// export const auth = firebase.auth();
-// export const firestore = firebase.firestore();
+export const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-// const provider = new firebase.auth.GoogleAuthProvider();
-// provider.setCustomParameters({ prompt: "select_account" });
-
-// export const signInWithGoogle = () => auth.signInWithPopup(provider);
-
-// export default firebase;
+export const firebaseAuth = firebaseApp.auth();
+export const firebaseDatabase = firebaseApp.database();
+export const googleProvider = new firebase.auth.GoogleAuthProvider();
+export const githubProvider = new firebase.auth.GithubAuthProvider();

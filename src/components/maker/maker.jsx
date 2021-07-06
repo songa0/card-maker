@@ -51,7 +51,7 @@ const Maker = ({ authService, FileInput, dbService }) => {
         history.push("/");
       }
     });
-  });
+  }, [authService, history]);
 
   useEffect(() => {
     if (!userId) {
@@ -61,7 +61,7 @@ const Maker = ({ authService, FileInput, dbService }) => {
       setCards(data);
     });
     return () => stopSync(); //unmount 되었을 때 자동으로 호출됨
-  }, [userId]);
+  }, [userId, dbService]);
   return (
     <section className={styles.maker}>
       <div className={styles.header}>

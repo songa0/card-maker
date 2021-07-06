@@ -1,12 +1,12 @@
-import firebaseApp from "firebase";
+import { firebaseDatabase } from "./firebase";
 
 class DBService {
   writeData(userId, userInfo) {
-    firebaseApp.database().ref(`${userId}/cards/${userInfo.id}`).set(userInfo);
+    firebaseDatabase.ref(`${userId}/cards/${userInfo.id}`).set(userInfo);
   }
 
   readData(userId, onUpdate) {
-    var starCountRef = firebaseApp.database().ref(`${userId}/cards`);
+    var starCountRef = firebaseDatabase.ref(`${userId}/cards`);
     starCountRef.on("value", (snapshot) => {
       const data = snapshot.val();
       data && onUpdate(data);
@@ -15,7 +15,7 @@ class DBService {
   }
 
   removeData(userId, userInfo) {
-    firebaseApp.database().ref(`${userId}/cards/${userInfo.id}`).remove();
+    firebaseDatabase.ref(`${userId}/cards/${userInfo.id}`).remove();
   }
 }
 export default DBService;

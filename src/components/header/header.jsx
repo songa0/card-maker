@@ -4,7 +4,7 @@ import styles from "./header.module.css";
 const Header = ({ onLogout }) => {
   return (
     <header className={styles.header}>
-      <img src="images/logo.png" />
+      <img src="images/logo.png" alt="logo" />
       {onLogout ? (
         <button className={styles.logout} onClick={onLogout}>
           Logout

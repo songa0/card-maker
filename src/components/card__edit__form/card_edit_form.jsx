@@ -76,9 +76,8 @@ const CardEditForm = ({
         ref={commentRef}
         onChange={onChange}
         name="comment"
-      >
-        {comment}
-      </textarea>
+        value={comment}
+      ></textarea>
       <div className={styles.buttonDiv}>
         <FileInput onChange={onFileChange} name={fileName} />
         <Button name="Delete" onSubmit={onSubmit}></Button>
