@@ -8,8 +8,10 @@ import styles from "./maker.module.css";
 
 const Maker = ({ authService, FileInput, dbService }) => {
   const history = useHistory();
-  const [cards, setCards] = useState("");
-  const [userId, setUserId] = useState(history.state && history.state.id);
+  const [cards, setCards] = useState({});
+  const [userId, setUserId] = useState(
+    history.location?.state && history.location.state.id
+  );
   //const [imgUrl, setImgUrl] = useState(null);
 
   const onLogout = () => {
@@ -21,6 +23,8 @@ const Maker = ({ authService, FileInput, dbService }) => {
     const updatedCard = { ...cards };
     delete updatedCard[card.id];
     setCards(updatedCard);
+
+    dbService.removeData(userId, card);
   };
 
   // const updateImgUrl = (key, imgUrl) => {
@@ -43,17 +47,21 @@ const Maker = ({ authService, FileInput, dbService }) => {
     authService.onAuthStateChanged((user) => {
       if (user) {
         setUserId(user.uid);
-
-        //console.log(user.uid);
-        const rtn = dbService.readUserData(userId, cards);
-        console.log(rtn);
-        //read data, setCard
       } else {
         history.push("/");
       }
     });
   });
 
+  useEffect(() => {
+    if (!userId) {
+      return;
+    }
+    const stopSync = dbService.readData(userId, (data) => {
+      setCards(data);
+    });
+    return () => stopSync(); //unmount 되었을 때 자동으로 호출됨
+  }, [userId]);
   return (
     <section className={styles.maker}>
       <div className={styles.header}>
