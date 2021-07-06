@@ -6,50 +6,12 @@ import Header from "../header/header";
 import Preview from "../preview/preview";
 import styles from "./maker.module.css";
 
-const Maker = ({ authService, FileInput }) => {
+const Maker = ({ authService, FileInput, dbService }) => {
   const history = useHistory();
-  const [cards, setCards] = useState({
-    1: {
-      id: "1",
-      name: "Ellie",
-      company: "Samsung",
-      theme: "dark",
-      job: "software engineer",
-      email: "dream.coder.ellie@gmail.com",
-      comment: "don't forget to code your dream",
-      fileURL: "",
-      fileName: "",
-    },
-    2: {
-      id: "2",
-      name: "Bob",
-      company: "Samsung",
-      theme: "light",
-      job: "software engineer",
-      email: "dream.coder.ellie@gmail.com",
-      comment: "don't forget to code your dream",
-      fileURL: "",
-      fileName: "",
-    },
-    3: {
-      id: "3",
-      name: "Chris",
-      company: "Samsung",
-      theme: "colorful",
-      job: "software engineer",
-      email: "dream.coder.ellie@gmail.com",
-      comment: "don't forget to code your dream",
-      fileURL: "",
-      fileName: "",
-    },
-  });
-
+  const [cards, setCards] = useState("");
+  const [userId, setUserId] = useState(history.state && history.state.id);
   //const [imgUrl, setImgUrl] = useState(null);
 
-  const addCardFunc = (card) => {
-    const updatedCard = { ...cards, [card.id]: card };
-    setCards(updatedCard);
-  };
   const onLogout = () => {
     authService //
       .logout();
@@ -73,11 +35,20 @@ const Maker = ({ authService, FileInput }) => {
       updatedCard[card.id] = card;
       return updatedCard;
     });
+
+    dbService.writeData(userId, card);
   };
 
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
-      if (!user) {
+      if (user) {
+        setUserId(user.uid);
+
+        //console.log(user.uid);
+        const rtn = dbService.readUserData(userId, cards);
+        console.log(rtn);
+        //read data, setCard
+      } else {
         history.push("/");
       }
     });

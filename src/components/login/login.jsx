@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router";
 import Footer from "../footer/footer";
 import Header from "../header/header";
 import styles from "./login.module.css";
-import { signInWithGoogle, auth } from "../../service/firebase";
+import { auth } from "../../service/firebase";
 
 const Login = ({ authService }) => {
   const onLogin = (event) => {
