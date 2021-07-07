@@ -18,3 +18,8 @@
 
  - 개인 정보 입력/명함 카드 화면  
    ![image](https://user-images.githubusercontent.com/17793440/124737903-5f5ad500-df53-11eb-8d28-3d2cb4799b6f.png)
+
+4. 알게된 지식
+ - Rerendering을 방지하기 위해 memo, usecallback을 사용함.
+ - Netlify에 배포할때 API키를 Netlify에 등록해줘야 함.
+ - Firebase Auth 서비스를 사용할 때, Netlify의 도메인을 Firebase의 Authorized Domain에 등록해줘야 함.  
